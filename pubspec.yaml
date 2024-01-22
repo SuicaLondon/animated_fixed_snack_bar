@@ -2,6 +2,8 @@ name: animated_fixed_snack_bar
 owner: suica.dev
 description: "A widget to display fixed snack bar with the animation from top to down."
 version: 1.0.0
+homepage: https://suica.dev
+repository: https://github.com/SuicaLondon/animated_fixed_snack_bar
 
 environment:
   sdk: ">=3.0.9 <4.0.0"
