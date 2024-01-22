@@ -1,7 +1,6 @@
 import 'package:animated_fixed_snack_bar/animation/animation.dart';
+import 'package:animated_fixed_snack_bar/model/model.dart';
 import 'package:flutter/material.dart';
-
-enum DrawerSnackBarPosition { top, bottom }
 
 class DrawerSnackBarContainer extends StatefulWidget {
   const DrawerSnackBarContainer({
@@ -10,13 +9,13 @@ class DrawerSnackBarContainer extends StatefulWidget {
     required this.onClose,
     this.stopDuration = const Duration(seconds: 3),
     this.animationDuration = const Duration(milliseconds: 350),
-    this.from = DrawerSnackBarPosition.top,
+    this.from = SnackBarPosition.top,
   });
   final Widget child;
   final void Function() onClose;
   final Duration animationDuration;
   final Duration? stopDuration;
-  final DrawerSnackBarPosition from;
+  final SnackBarPosition from;
 
   @override
   State<DrawerSnackBarContainer> createState() =>
@@ -43,7 +42,7 @@ class _DrawerSnackBarContainerState extends State<DrawerSnackBarContainer>
   }
 
   void Function(DragUpdateDetails)? _onPanUpdate() {
-    if (widget.from == DrawerSnackBarPosition.top) {
+    if (widget.from == SnackBarPosition.top) {
       return (details) async {
         if (details.delta.dy < 0) {
           if (mounted) {

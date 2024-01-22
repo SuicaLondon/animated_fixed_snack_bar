@@ -1,6 +1,7 @@
+import 'package:animated_fixed_snack_bar/model/model.dart';
 import 'package:flutter/material.dart';
 
-import 'drawer_snack_bar_container.dart';
+import 'drawer_snack_bar/drawer_snack_bar_container.dart';
 
 class SnackBarManager {
   static OverlayEntry? _overlayEntry;
@@ -14,7 +15,7 @@ class SnackBarManager {
     Color? textColor,
     Duration stopDuration = const Duration(seconds: 3),
     Duration animationDuration = const Duration(milliseconds: 200),
-    DrawerSnackBarPosition position = DrawerSnackBarPosition.bottom,
+    SnackBarPosition position = SnackBarPosition.bottom,
   }) {
     assert((content == null && message != null) ||
         (content != null && message == null));
@@ -75,22 +76,21 @@ class SnackBarManager {
     Overlay.of(context).insert(_overlayEntry!);
   }
 
-  static MainAxisAlignment _getMainAxisAlignment(
-      DrawerSnackBarPosition position) {
+  static MainAxisAlignment _getMainAxisAlignment(SnackBarPosition position) {
     return switch (position) {
-      DrawerSnackBarPosition.top => MainAxisAlignment.start,
-      DrawerSnackBarPosition.bottom => MainAxisAlignment.end,
+      SnackBarPosition.top => MainAxisAlignment.start,
+      SnackBarPosition.bottom => MainAxisAlignment.end,
     };
   }
 
   static EdgeInsetsGeometry _getContentPadding(
     BuildContext context,
-    DrawerSnackBarPosition position,
+    SnackBarPosition position,
   ) {
     return switch (position) {
-      DrawerSnackBarPosition.top =>
+      SnackBarPosition.top =>
         EdgeInsets.only(top: MediaQuery.of(context).padding.top),
-      DrawerSnackBarPosition.bottom =>
+      SnackBarPosition.bottom =>
         EdgeInsets.only(bottom: MediaQuery.of(context).padding.bottom),
     };
   }
