@@ -1,4 +1,4 @@
-import 'package:animated_fixed_snack_bar/model/model.dart';
+import 'package:animated_fixed_snack_bar/src/model/model.dart';
 import 'package:flutter/material.dart';
 
 import 'drawer_snack_bar/drawer_snack_bar_container.dart';

@@ -1,4 +1,4 @@
 library animated_fixed_snack_bar;
 
-export 'snack_bar/snack_bar_manager.dart';
-export 'model/model.dart';
+export 'src/snack_bar/snack_bar_manager.dart';
+export 'src/model/model.dart';
