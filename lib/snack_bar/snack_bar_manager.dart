@@ -7,14 +7,37 @@ class SnackBarManager {
   static OverlayEntry? _overlayEntry;
   static String? _currentMessage;
 
+  /// ## Show the snack bar with [Drawer] animation
+  /// ```Dart
+  /// SnackBarManager.showDrawerSnackBar(
+  ///   context,
+  ///   message: 'Hello Suica',
+  ///   position: SnackBarPosition.top,
+  /// );
+  /// ```
   static showDrawerSnackBar(
     BuildContext context, {
+    /// The message that you want to show on the snack bar (conflict with content)
     String? message,
+
+    /// The widget that you want to show on the snack bar (conflict with message)
     Widget? content,
+
+    /// The background color of the snack bar (default is primary)
     Color? bgColor,
+
+    /// The foreground color of the snack bar (default is onPrimary)
     Color? textColor,
+
+    /// The stop duration between enter animation and exit animation
     Duration stopDuration = const Duration(seconds: 3),
+
+    /// The animation duration
+    /// TODO: seperate the animation to enter and exit
     Duration animationDuration = const Duration(milliseconds: 200),
+
+    /// The position that the snack bar pop up
+    /// TODO: support the position on other side
     SnackBarPosition position = SnackBarPosition.bottom,
   }) {
     assert((content == null && message != null) ||
@@ -101,4 +124,6 @@ class SnackBarManager {
     _overlayEntry = null;
     _currentMessage = null;
   }
+
+  /// TODO: Add more animation and custom animation controller
 }
